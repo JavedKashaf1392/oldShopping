@@ -1,0 +1,63 @@
+<div class="container">
+
+    <h3 style="color: green;">Add Product</h3>
+    <form action="#" (ngSubmit)="UpdateUser()" method="Post">
+
+
+
+        <div class="row mt-3">
+            <div class="col-2">id</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.id" name="id" id="id" class="form-control" readonly/>
+            </div>
+        </div>
+
+    
+        <div class="row mt-3">
+            <div class="col-2">First Name</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.firstName" name="firstName" id="firstName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-2">lastName</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.lastName" name="lastName" id="lastName" class="form-control" />
+            </div>
+        </div>
+    
+       
+        <div class="row mt-2">
+            <div class="col-2">Email</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.email" name="email" id="email" class="form-control" />
+            </div>
+        </div>
+    
+        <!-- <div class="row mt-2">
+            <div class="col-2">mobile</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.mobile" name="mobile" id="mobile" class="form-control" />
+            </div>
+        </div> -->
+    
+        <div class="row mt-2">
+            <div class="col-2">password</div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="user.password" name="password" id="password" class="form-control" />
+            </div>
+        </div>
+     
+        <div class="row mt-3">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <input type="submit" value="register" class="btn btn-success">
+            </div>
+        </div>
+    </form>
+    <br>
+    <!-- <h3 style="color: white;background-color: darkcyan;">{{message}}</h3> -->
+    </div>
+    
+

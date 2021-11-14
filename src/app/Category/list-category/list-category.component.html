@@ -1,0 +1,129 @@
+<!-- <div class="row">
+    <div class="container">
+        <div class="col-11">
+        <table class="table table-bordered table-hover">
+            <thead style="color: white;background-color:green;">
+            <tr style="border-color: green;">
+                <th>id</th>
+                <th>Name</th>
+                <th>alias</th>
+                <th>image</th>
+                <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody style="border-color: green;">
+            <tr *ngFor="let c of category">
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.alias}}</td>
+                <td ><img src= "assets/{{c.image}}" width="80" height="60"></td>
+                <td><Button class="btn btn-outline-danger" (click)="deleteProduct(p.id)">DELETE</Button>
+                    &nbsp;
+                    <Button class="btn btn-outline-info" (click)="editProduct(p.id)">Edit</Button>
+                </td>
+               
+            </tr>
+        </tbody>
+        </table>
+         <h6 style="background-color: blue;color: white;">{{message}}</h6> -->
+        <!-- </div>
+</div>
+</div>  -->
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <input #myInput type="text" (keyup.enter)="listCategory(myInput.value)" class="form-control" placeholder="search for Category...">
+    </div>
+    <div class="col-3" style="margin-left: -15px;">
+            <button mat-raised-button color="accent" class="text-white" 
+            ngbPopover="Search here for the product"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="listCategory(myInput.value)"><mat-icon style="margin-left: -10px;">search</mat-icon>Search</button>
+            &nbsp;
+            <button mat-raised-button color="warn" class="text-white" 
+            ngbPopover="For Refresh the all data"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="loadData()">
+            <mat-icon style="margin-left: -10px;">loop</mat-icon>Reload</button>
+    </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <table class="table mat-table  table-hover table-bordered table-responsive-md btn-table">
+        <thead>
+            <tr class="mat-header-row">
+
+                <th class='mat-header-cell'>
+                    <!-- <input type="checkbox"  (change)="checkAllCheckBox($event)"> -->
+                     <mat-checkbox class="example-margin" (change)="checkAllCheckBox1($event.checked)"></mat-checkbox> 
+                </th>
+
+                <th class='mat-header-cell'>Category Id</th>
+                <th class='mat-header-cell'>Name</th>
+                <th class='mat-header-cell'>Category Alias</th>
+                <th class='mat-header-cell'>Image</th>
+                <th class='mat-header-cell'>Enabled</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr class="mat-row" *ngFor="let category of categorys;let indexOfelement=index;">
+                <!-- <td><input type="checkbox" value="{{p.id}}" [(ngModel)]="products[indexOfelement].checked"></td> -->
+                <td><mat-checkbox class="example-margin" value="{{category.id}}" [(ngModel)]="categorys[indexOfelement].checked"></mat-checkbox></td>
+                <td class="mat-cell">{{category.id}}</td>
+                <td class="mat-cell">{{category.name}}</td>
+                <td class="mat-cell">{{category.alias}}</td>
+                <td class="mat-cell">{{category.image}}</td>
+                <td class="mat-cell">{{category.enabled}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+            <button mat-raised-button class="bg-danger text-white" 
+            ngbPopover="delete data select checkboxes!"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            
+            (click)="delete()"><mat-icon style="margin-left: -10px;">delete</mat-icon>Delete</button>
+            &nbsp;
+            <button mat-raised-button class="bg-success text-white" 
+            ngbPopover="update data select one checkbox"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="Update()"><mat-icon style="margin-left: -10px;">mode_edit</mat-icon>Update</button>
+       
+           
+            &nbsp;
+            <button mat-raised-button color="primary" 
+            ngbPopover="Activate and DeActivate select one checkbox"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="ActivateAndDeactivate()"><mat-icon style="margin-left: -10px;"> lock</mat-icon>act/dact</button>
+       
+            &nbsp;
+            <button mat-raised-button color="accent" class="text-white"  
+            ngbPopover="Export Pdf select one checkbox"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="GeneratePdf()"><mat-icon style="margin-left: -10px;"> picture_as_pdf</mat-icon> Pdf</button>
+       
+            &nbsp;
+            <button mat-raised-button class="bg-warning text-white" 
+            ngbPopover="Export Pdf select one checkbox"
+            [openDelay]="500" [closeDelay]="500" triggers="mouseenter:mouseleave"
+            (click)="GenerateExcel()"><mat-icon style="margin-left: -10px;"> description</mat-icon>Excel</button>
+
+         
+        </div>
+        <div class="col-md-6 paginator">
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" showFirstLastButtons [length]="totalElements"
+            (page)="nextPage($event)">
+         </mat-paginator>
+        </div>
+        </div>
+
+    </div>

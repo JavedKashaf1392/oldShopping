@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    padding-top: 80px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ @import '../node_modules/bootstrap/dist/css/bootstrap.css'; 
+
+/* @import '../node_modules/font-awesome/css/font-awesome.min.css'; */
+@import "../node_modules/angular-notifier/styles.css";
+@import "../node_modules/angular-notifier/styles/themes/theme-material.css";
+@import "../node_modules/angular-notifier/styles/types/type-error.css";
+
+
+
+
+
